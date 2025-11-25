@@ -56,7 +56,7 @@ export class App {
     return Number(result.toFixed(2));
   }
 
-  public elimina_color(color : string) : string[]{
-    return this.colores.filter(data => data !== color);
+  public elimina_color(colorEliminar : string) : string[]{
+    return this.colores.filter(colores => colores !== colorEliminar);
   }
 }
