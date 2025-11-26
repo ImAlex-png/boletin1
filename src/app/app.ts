@@ -114,16 +114,8 @@ export class App {
       }
       result.push(fila);
     }
-    this.imprime_matriz(result);
+    console.log(result);
     return result;
-  }
-
-  private imprime_matriz(matriz : number[][]) : void{
-    for( let i = 0; i < 3; i++){
-      for(let j = 0; j < 3; i++){
-        console.log(matriz);
-      }
-    }
   }
 
 }
