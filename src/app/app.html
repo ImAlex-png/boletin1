@@ -244,9 +244,41 @@
         ellos debe estar el verde.
       </p>
 
-      <!-- <ul *ngFor='let color of elimina_color('verde')'>
+      <ul *ngFor="let color of elimina_color('Verde')">
         <li>{{ color }}</li>
-      </ul> -->
+      </ul>
+
+      <h2>Ejercicio 5</h2>
+
+      <p> Supon un array ordenado alfabéticamente de frutas. (Aguacate, Banana, Chirimoya,
+        Dátil, Fresa, Guayaba, Kiwi, Limón, Naranja, Pera, Sandía, Uva, Yuca). Introduce el
+        melón de forma que el orden se mantenga usando splice.
+      </p>
+
+      <label for="fruta"></label>
+      <br>
+      <input (keydown.enter)="insertar_fruta()" [(ngModel)]="fruta" id="fruta" type="text">
+      <button (click)="insertar_fruta()">Insertar Fruta</button>
+
+      <ul *ngFor="let fruta of frutas">
+        <li>{{ fruta }}</li>
+      </ul>
+
+      <h2>Ejercicio 6</h2>
+
+      <p> Crea un array multidimensional que represente las butacas de un teatro con 10 filas
+        y 15 columnas. Realiza un algoritmo que de forma aleatoria ocupe (1) cinco asientos
+        dejando el resto de butacas sin ocupar (0). Finalmente muestra las butacas
+        ocupadas. Si el algoritmo coincide en ocupar una butaca que ya anteriormente
+        estaba ocupada realiza otro intento.
+
+      </p>
+
+      <h2>Ejercicio 7</h2>
+
+      <p> Implemente una calculadora de matrices que dada dos matrices del mismo tamaño
+        devuelva una tercera matriz con el resultado de la suma.
+      </p>
 
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
