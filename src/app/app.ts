@@ -39,6 +39,17 @@ export class App {
 
   public fruta: string = "";
 
+  public diasSemana: Set<string> = new Set();
+
+  public entreSemana: Set<string> = new Set(["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"]);
+  public finde: Set<string> = new Set(["Viernes", "Sabado", "Domingo"]);
+
+  public alumnos: Set<string> = new Set();
+
+  public numeros: Set<string> = new Set();
+
+
+
   //Matriz de dos dimensiones ( array de arrays)
   public matriz1: number[][] = this.inicializa_matriz();
   public matriz2: number[][] = this.inicializa_matriz();
@@ -116,6 +127,124 @@ export class App {
     }
     console.log(result);
     return result;
+  }
+
+  public rellena_semana(): void {
+    //Patron de diseño 'chain'.
+    //Un conjunto no contiene duplicados
+    this.diasSemana.add("Lunes")
+      .add("Martes")
+      .add("Miercoles")
+      .add("Jueves")
+      .add("Viernes")
+      .add("Sabado")
+      .add("Domingo");
+  }
+
+
+  public unir_conjunto(): void {
+    // ' ... ' Es un operador que me da los valores del array donde solo cabe un valor. Devuelve la secuencia de elementos que tiene dentro del array
+
+    //En un conjunto, no mete duplicados
+
+    //Union, mete todo
+
+    //Interseccion, solo lo comun en ambos
+
+    // 'Lunes','Martes','Miercoles','Jueves','Viernes',['Sabado', 'Domingo']
+
+    // this.diasSemana = new Set(...this.entreSemana, this.finde);
+
+    // 'Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo'
+    this.diasSemana = new Set([...this.entreSemana, ...this.finde]);
+  }
+
+
+  public operar_conjunto(opt: number): void {
+    switch (opt) {
+      case 1:
+        this.add_to_set();
+        console.log(this.alumnos);
+        break;
+      case 2:
+        this.delete_from_set();
+        console.log(this.alumnos);
+        break;
+      case 3:
+        let estaXexu: boolean = this.find_in_set("Xexu");
+        let estaSalva: boolean = this.find_in_set("Salvador");
+        console.log("El alumno xexu esta?: " + estaXexu);
+        console.log("El alumno xexu esta?: " + estaSalva);
+        break;
+      case 4:
+        let tam: number = this.count_set();
+        console.log("El conjunto tiene: " + tam + " elementos")
+        break;
+    }
+  }
+
+  private add_to_set(): void {
+    this.alumnos.add("Pedro").add("Salvador").add("Maria").add("Juan").add("Sara")
+  }
+
+  private delete_from_set(): void {
+    this.alumnos.delete("Maria");
+  }
+
+  private find_in_set(alumno: string): boolean {
+    return this.alumnos.has(alumno);
+  }
+
+  private count_set(): number {
+    return this.alumnos.size;
+  }
+
+  public elimina_duplicados(): string[] {
+    let coloresDuplicados: string[] = [
+      'Azul',
+      'Rosa',
+      'Naranja',
+      'Verde',
+      'Amarillo',
+      'Rojo',
+      'Azul',      // duplicado
+      'Verde',     // duplicado
+      'Rojo',      // duplicado
+      'Rosa',      // duplicado
+      'Naranja',
+      'Amarillo'   // duplicado
+    ];
+
+
+    let conjunto_elementos: Set<string> = new Set(coloresDuplicados);
+
+    let listaSinRepetidos = [...conjunto_elementos];
+
+    return listaSinRepetidos;
+  }
+
+  public ej14(): Set<string> {
+
+    let del1al10: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+
+    let del5al15: string[] = ["5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
+
+    let del10al20: string[] = ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"];
+
+    return this.numeros = new Set([...del1al10, ...del5al15, ...del10al20]);
+  }
+
+  public listin_telefonico(): Map<string, string> {
+    let listin: Map<string, string> = new Map();
+
+    listin.set("Juan", "600111666");
+    listin.set("Alberto", "640311596");
+    listin.set("Pepe", "640311596");
+    
+    console.table(listin);
+
+
+    return listin;
   }
 
 }

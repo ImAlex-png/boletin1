@@ -280,6 +280,77 @@
         devuelva una tercera matriz con el resultado de la suma.
       </p>
 
+      <h2>Ejercicio 11</h2>
+
+      <p> Crea un conjunto que almacene los 7 días de la semana y muéstranos por pantalla.
+      </p>
+
+      {{ unir_conjunto() }}
+
+      <ul *ngFor="let dia of diasSemana">
+        <li>{{ dia }}</li>
+      </ul>
+
+      <h2>Ejercicio 12</h2>
+
+      <p> Crea un conjunto vacío y empieza a añadir uno a uno los nombres de tus
+        compañeros. Elimina ahora uno que se encuentre en una posición central. Busque
+        sobre ese conjunto alumnos que estén y que no estén dentro del conjunto. Indica el
+        tamaño del conjunto al terminar.
+      </p>
+
+      {{ operar_conjunto(1) }}
+      {{ operar_conjunto(2) }}
+      {{ operar_conjunto(3) }}
+      {{ operar_conjunto(4) }}
+
+      <h2>Ejercicio 13</h2>
+
+      <p> Crea un array con elementos duplicados y desarrolla una función que se llame
+        eliminaDuplicados() que realiza la función correspondiente para eliminar aquellos
+        elementos que se encuentren más de una vez dentro del array.
+      </p>
+
+      <ul>
+        @for (elemento of elimina_duplicados(); track $index) {
+        <li>{{elemento}}</li>
+        }
+
+      </ul>
+
+      <h2>Ejercicio 14</h2>
+
+      <p> Crea un array con los números del 1 al 10, otro con los números del 5 al 15 y por
+        último otro con los números del 10 al 20. Realiza una unión de todos los arrays en
+        un conjunto y muestra su resultado. ¿Qué ha ocurrido?
+      </p>
+
+      {{ ej14() }}
+      <ul>
+        @for (elemento of ej14(); track $index) {
+        <li>{{elemento}}</li>
+        }
+
+      </ul>
+
+      <h2>Ejercicio 15</h2>
+
+      <p> Inventa un listín telefónico de 10 personas de modo que no quieras memorizar sus
+        teléfonos, solo sus nombres y puedas en cualquier momento consultar el número de
+        teléfono de cada uno de ellos. Pinta el listín telefónico completo y el teléfono de una
+        persona en concreto. ¿Qué ocurre si consultas el teléfono de una persona que no se
+        encuentra dentro del listín? ¿Puede tener el mismo número de teléfono una
+        persona? ¿Puede una persona tener más de un teléfono?
+
+      </p>
+
+      <!-- Recorrer un map -->
+      @for(x of listin_telefonico(); track $index){
+        <li>{{ x }}</li>
+      }
+
+      Valor de Juan: {{listin_telefonico().get("Alberto")}}
+
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
